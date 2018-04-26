@@ -1,0 +1,64 @@
+Requirements;
+Mono framework
+SDL 2 (available as  sdl2 seems ok)
+Lua 5.1 (available as lua-5.1.5p6 )
+NuGet (.Net package kind of thing)
+FreeType ( available seems to work freetype-1.3.1p4 )
+OpenAL ( openal-1.17.2p0v0 )
+curl ( available inst:curl-7.59.0 )
+unzip ( unzip-6.0p11 )
+xdg-utils (Available seems ok)
+zenity (available seems ok)
+
+
+
+
+- gmake dependencies
+Fetching StyleCopPlus from NuGet
+Fetching StyleCop files from NuGet
+Fetching ICSharpCode.SharpZipLib from NuGet
+Fetching MaxMind.Db from NuGet
+Fetching SharpFont from NuGet
+Fetching NUnit from NuGet
+Fetching NUnit.Console from NuGet
+Fetching Open.Nat from NuGet
+Fetching FuzzyLogicLibrary from NuGet.
+Fetching SDL2-CS from GitHub.
+Fetching OpenAL-CS from GitHub.
+Fetching Eluant from GitHub.
+Fetching rix0rrr.BeaconLib from NuGet.
+Updating GeoIP country database from MaxMind.
+Detected Lua 5.1 library at /usr/local/lib/liblua5.1.so.5.1
+Eluant.dll.config has been created successfully.
+-- log output end --
+
+
+- gmake all
+drobban@r400\: gmake all
+CSC fixheader.exe
+CSC OpenRA.Game.exe
+CSC OpenRA.Platforms.Default.dll
+CSC mods/common/OpenRA.Mods.Common.dll
+CSC mods/common/OpenRA.Mods.Cnc.dll
+CSC mods/d2k/OpenRA.Mods.D2k.dll
+CSC OpenRA.Utility.exe
+CSC OpenRA.Server.exe
+CSC OpenRA.StyleCheck.exe
+-- log output end --
+
+
+
+----- This might be area of changes -----
+In Makefile - line 89 - It checks for "known" OS.
+it sets variable;
+os-dependencies = osx-dependencies or linux-dependencies
+
+related observation on line 311.
+runs shell-script that downloads and copies dll.configs and libs.
+
+
+The DNS-resolve issue is related to the DNS: Name Resolution Failure #8168
+
+gmake dependencies
+gmake ; cp /home/drobban/code/rfht-stuff/games/openra/*.config .
+
